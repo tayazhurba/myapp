@@ -40,7 +40,6 @@ public class Application extends Controller {
     }
 
     public static Result editTask(Long id){
-
         // Найти его в базе
         Task t = Task.finder.ref(id);
         // Cоздать форму поверх этого объекта

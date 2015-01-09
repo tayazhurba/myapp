@@ -2,7 +2,7 @@
 
 @import helper._
 @main("Todo list") {
-<table class="table">
+<table class="table table-striped">
     @if(tasks.size()!=0) {
     <tr>
         <th  width="10">Status</th>
@@ -45,6 +45,13 @@
 <h2>Add a new task</h2>
 
 @form(routes.Application.newTask()) {
+        
+<div class="col-md-2">
+    <select required name="GiftStatus" class="form-control">
+        <option value="0">Куплено</option>
+        <option value="1">Еще нет</option>
+    </select>
+</div>
 
 <div class="col-md-3">
     <input required type=date class="form-control" name="PlanDate" placeholder="Date"/>
