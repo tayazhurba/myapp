@@ -15,10 +15,10 @@
     @for(task <- tasks) {
 
     <tr>
-        @if(2>3){
+        @if(task.GiftStatus == "0"){
         <td><img src="/assets/images/1.png" type="image/png"></td>
         }
-        @if(3>2){
+        @if(task.GiftStatus == "1"){
         <td><img src="/assets/images/2.png" type="image/png"></td>
         }
         <td>@task.PlanDate</td>
@@ -45,9 +45,9 @@
 <h2>Add a new task</h2>
 
 @form(routes.Application.newTask()) {
-        
+
 <div class="col-md-2">
-    <select required name="GiftStatus" class="form-control">
+    <select name="GiftStatus" class="form-control">
         <option value="0">Куплено</option>
         <option value="1">Еще нет</option>
     </select>

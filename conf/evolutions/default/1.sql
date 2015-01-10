@@ -5,6 +5,7 @@
 
 create table task (
   id                        bigint not null,
+  gift_status               varchar(255),
   plan_date                 timestamp,
   plan_name                 varchar(255),
   gift                      varchar(255),

@@ -19,6 +19,7 @@ public class Task extends Model {
 
 
     @Required
+    public String GiftStatus;
     public Date PlanDate;
     public String PlanName;
     public String Gift;
@@ -53,6 +54,10 @@ public class Task extends Model {
         return Gift;
     }
 
+    public String getGiftStatus() {
+        return GiftStatus;
+    }
+
     public void setPlanDate(Date planDate) {
         PlanDate = planDate;
     }
@@ -63,5 +68,9 @@ public class Task extends Model {
 
     public void setGift(String gift) {
         Gift = gift;
+    }
+
+    public void setGiftStatus(String giftStatus) {
+        GiftStatus = giftStatus;
     }
 }
