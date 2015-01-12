@@ -10,15 +10,16 @@
 	<input type="hidden" name ="id" value="@taskForm.get().id">
     <div class="col-md-2">
         <select name="GiftStatus" class="form-control" contenteditable="true">
-            <option value="1">Еще нет</option>
-            <option value="0">Куплено</option>
+            <option value="Еще нет">@taskForm("GiftStatus").value</option>
+            <option value="Куплено">Куплено</option>
+            <option value="Еще нет">Еще нет</option>
         </select>
     </div>
 	<div class="col-md-2">
-	  <input required type=Date class="form-control" name="PlanDate" value="@taskForm("PlanDate").value" contenteditable="true">
+	  <input required type=Date class="form-control" name="Birthday" value="@taskForm("Birthday").value" contenteditable="true">
 	</div>
 	<div class="col-md-2">
-	  <input required type=text class="form-control" name="PlanName" value="@taskForm("PlanName").value" contenteditable="true">
+	  <input required type=text class="form-control" name="Name" value="@taskForm("Name").value" contenteditable="true">
 	</div>
 	<div class="col-md-2">
 	  <input required type=text class="form-control" name="Gift" value="@taskForm("Gift").value" contenteditable="true">

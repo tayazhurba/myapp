@@ -20,8 +20,8 @@ public class Task extends Model {
 
     @Required
     public String GiftStatus;
-    public Date PlanDate;
-    public String PlanName;
+    public Date Birthday;
+    public String Name;
     public String Gift;
 
 
@@ -42,12 +42,12 @@ public class Task extends Model {
             Long.class, Task.class
     );
 
-    public Date getPlanDate() {
-        return PlanDate;
+    public Date getBirthday() {
+        return Birthday;
     }
 
-    public String getPlanName() {
-        return PlanName;
+    public String getName() {
+        return Name;
     }
 
     public String getGift() {
@@ -58,12 +58,12 @@ public class Task extends Model {
         return GiftStatus;
     }
 
-    public void setPlanDate(Date planDate) {
-        PlanDate = planDate;
+    public void setBirthday(Date birthday) {
+        Birthday = birthday;
     }
 
-    public void setPlanName(String planName) {
-        PlanName = planName;
+    public void setName(String name) {
+        Name = name;
     }
 
     public void setGift(String gift) {

@@ -52,7 +52,7 @@ public class Application extends Controller {
 
     public static Result updateTask() {
         Form<Task> filledForm = taskForm.bindFromRequest();
-        System.out.println(filledForm.get().PlanName);
+        System.out.println(filledForm.get().Name);
         if(filledForm.hasErrors()) {
             return badRequest(
                     views.html.edit.render(filledForm)
