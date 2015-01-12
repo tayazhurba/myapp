@@ -5,11 +5,11 @@ import java.lang.String;
 import java.text.DateFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
-import java.util.Date;
-
+import javax.persistence.*;
 import play.db.ebean.*;
 import play.data.validation.Constraints.*;
-import javax.persistence.*;
+import play.data.format.*;
+import play.data.validation.*;
 
 @Entity
 public class Task extends Model {
@@ -20,9 +20,12 @@ public class Task extends Model {
 
     @Required
     public String GiftStatus;
-    public Date Birthday;
+    //public Date Birthday;
     public String Name;
     public String Gift;
+
+    @Formats.DateTime(pattern="dd/MM/yyyy")
+    public Date Birthday = new Date();
 
 
     public static List<Task> all() {
