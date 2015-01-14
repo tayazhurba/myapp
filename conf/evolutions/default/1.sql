@@ -6,9 +6,9 @@
 create table task (
   id                        bigint not null,
   gift_status               varchar(255),
+  birthday                  timestamp,
   name                      varchar(255),
   gift                      varchar(255),
-  birthday                  timestamp,
   constraint pk_task primary key (id))
 ;
 

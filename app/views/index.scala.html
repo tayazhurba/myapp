@@ -6,7 +6,7 @@
     @if(tasks.size()!=0) {
     <tr>
         <th  width="10">Status</th>
-        <th  width="200">Birthday</th>
+        <th  width="150">Birthday</th>
         <th  width="150">Name</th>
         <th  width="150">Gift</th>
         <th  width="70"></th>
@@ -22,7 +22,7 @@
         @if(task.GiftStatus == "Еще нет"){
         <td><img src="/assets/images/2.png" type="image/png"></td>
         }
-        <td>@task.Birthday</td>
+        <td>@task.Birthday.format("dd MMMM yyyy")</td>
         <td>@task.Name</td>
         <td>@task.Gift</td>
         <td>
@@ -55,7 +55,7 @@
 </div>
 
 <div class="col-md-3">
-    <input required type=date class="form-control" name="Birthday" placeholder="Birthday"/>
+    <input required type=Date class="form-control" name="Birthday" placeholder="Birthday"/>
 </div>
 
 <div class="col-md-3">

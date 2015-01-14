@@ -20,12 +20,9 @@ public class Task extends Model {
 
     @Required
     public String GiftStatus;
-    //public Date Birthday;
+    public Date Birthday;
     public String Name;
     public String Gift;
-
-    @Formats.DateTime(pattern="dd/MM/yyyy")
-    public Date Birthday = new Date();
 
 
     public static List<Task> all() {
