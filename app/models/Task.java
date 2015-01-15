@@ -42,6 +42,11 @@ public class Task extends Model {
             Long.class, Task.class
     );
 
+    public static List<Task> tasks = Task.finder.where()
+            .ilike("Name", "%coco%")
+            .orderBy("Birthday asc")
+            .findList();
+
     public Date getBirthday() {
         return Birthday;
     }

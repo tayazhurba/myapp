@@ -10,9 +10,8 @@
 	<input type="hidden" name ="id" value="@taskForm.get().id">
     <div class="col-md-2">
         <select name="GiftStatus" class="form-control" contenteditable="true">
-            <option value="Еще нет">@taskForm("GiftStatus").value</option>
-            <option value="Куплено">Куплено</option>
-            <option value="Еще нет">Еще нет</option>
+            <option value="Куплено" @if(taskForm("GiftStatus").value == "Куплено") {selected}>Куплено</option>
+            <option value="Еще нет" @if(taskForm("GiftStatus").value == "Еще нет") {selected}>Еще нет</option>
         </select>
     </div>
 	<div class="col-md-2">
