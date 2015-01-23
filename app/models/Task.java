@@ -5,6 +5,7 @@ import java.lang.String;
 import java.text.DateFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.util.GregorianCalendar;
 import javax.persistence.*;
 import play.db.ebean.*;
 import play.data.validation.Constraints.*;
@@ -20,7 +21,7 @@ public class Task extends Model {
 
     @Required
     public String GiftStatus;
-    public Date Birthday;
+    public Calendar Birthday;
     public String Name;
     public String Gift;
 
@@ -42,14 +43,7 @@ public class Task extends Model {
             Long.class, Task.class
     );
 
-    public static List<Task> tasks = Task.finder.where()
-            .ilike("Name", "%coco%")
-            .orderBy("Birthday asc")
-            .findList();
 
-    public Date getBirthday() {
-        return Birthday;
-    }
 
     public String getName() {
         return Name;
@@ -63,7 +57,11 @@ public class Task extends Model {
         return GiftStatus;
     }
 
-    public void setBirthday(Date birthday) {
+    public Calendar getBirthday() {
+        return Birthday;
+    }
+
+    public void setBirthday(Calendar birthday) {
         Birthday = birthday;
     }
 
