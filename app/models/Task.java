@@ -1,10 +1,12 @@
 package models;
 
 import java.lang.Boolean;
+import java.lang.Long;
 import java.lang.String;
 import java.text.DateFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import javax.persistence.*;
 import play.db.ebean.*;
@@ -21,10 +23,13 @@ public class Task extends Model {
 
     @Required
     public String GiftStatus;
-    public Calendar Birthday;
+    public Date Birthday;
     public String Name;
     public String Gift;
 
+    public static Finder<Long,Task> finder = new Finder(
+            Long.class, Task.class
+    );
 
     public static List<Task> all() {
         return finder.all();
@@ -38,12 +43,9 @@ public class Task extends Model {
         finder.ref(id).delete();
     }
 
-
-    public static Finder<Long,Task> finder = new Finder(
-            Long.class, Task.class
-    );
-
-
+    public Long getId() {
+        return id;
+    }
 
     public String getName() {
         return Name;
@@ -57,11 +59,11 @@ public class Task extends Model {
         return GiftStatus;
     }
 
-    public Calendar getBirthday() {
+    public Date getBirthday() {
         return Birthday;
     }
 
-    public void setBirthday(Calendar birthday) {
+    public void setBirthday(Date birthday) {
         Birthday = birthday;
     }
 
@@ -75,5 +77,9 @@ public class Task extends Model {
 
     public void setGiftStatus(String giftStatus) {
         GiftStatus = giftStatus;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
