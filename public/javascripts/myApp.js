@@ -22,15 +22,15 @@ ViewModelTasks = function() {
     self.availableGifts = ko.observableArray(['Куплено', 'Еще нет']);
     self.chosenGifts = ko.observableArray(['Еще нет']);
 
-    self.BETA = function(){
-        console.log()
-        console.log(self.id)
-        console.log(self.name())
-        console.log(self.birthday())
-        console.log(self.gift())
-        console.log(self.giftStatus())
-
-    }
+//    self.BETA = function(){
+//        console.log()
+//        console.log(self.id)
+//        console.log(self.name())
+//        console.log(self.birthday())
+//        console.log(self.gift())
+//        console.log(self.giftStatus())
+//
+//    }
 
     self.getTasks = function(){
         jsRoutes.controllers.Application.tasks2().ajax({
