@@ -16,7 +16,7 @@ GET     /tasks                  controllers.Application.tasks()
 POST    /tasks                  controllers.Application.newTask()
 POST    /tasks/:id/delete       controllers.Application.deleteTask(id: Long)
 POST	/tasks/update			controllers.Application.updateTask()
-GET		/tasks/:id/edit			controllers.Application.editTask(id: Long)
+# GET		/tasks/:id/edit			controllers.Application.editTask(id: Long)
 
 GET     /api/jsRoutes           controllers.Application.jsRoutes()
 

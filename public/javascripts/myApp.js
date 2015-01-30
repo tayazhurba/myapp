@@ -5,8 +5,9 @@ function Task(id, name, birthday, gift, giftStatus) {
     self.birthday   = ko.observable(birthday);
     self.gift       = ko.observable(gift);
     self.giftStatus = ko.observable(giftStatus);
-}
 
+}
+    var red = "/assets/images/1.png";
 ViewModelTasks = function() {
     var self = this;
 
@@ -17,8 +18,9 @@ ViewModelTasks = function() {
     self.birthday   = ko.observable("");
     self.gift       = ko.observable("");
     self.giftStatus = ko.observable("Куплено");
-
+    self.url        = ko.observable("/assets/images.1.png");
     self.availableGifts = ko.observableArray(['Куплено', 'Еще нет']);
+    self.chosenGifts = ko.observableArray(['Еще нет']);
 
     self.BETA = function(){
         console.log()
@@ -69,6 +71,32 @@ ViewModelTasks = function() {
 
     }
 
+    self.updTask = function(){
+        var task = new Task(self.id, self.name(), self.birthday(), self.gift(), self.giftStatus());
+        var dataJSON = ko.toJSON(task);
+        console.log(dataJSON);
+        jsRoutes.controllers.Application.updTask2().ajax({
+            dataType    : "json",
+            contentType : "application/json; charset=utf-8",
+            data        : dataJSON,
+            success : function(result){
+                console.log("OKE");
+                console.log(result);
+                for (i = 0; i < self.tasks().length; i++){
+                    if (self.tasks()[i].id       == task.id){
+                        self.tasks()[i].name(self.name());
+                        self.tasks()[i].birthday(self.birthday());
+                        self.tasks()[i].gift(self.gift());
+                        self.tasks()[i].giftStatus(self.giftStatus());
+                        break;
+                    }
+                }
+            },
+            error : function(result){
+                console.log("Error: " + result);
+            }
+        });
+    };
 
     self.createTask = function(){
         console.log("CREATE")
@@ -93,12 +121,17 @@ ViewModelTasks = function() {
         });
     }
 
-    self.updTask = function(){
-        console.log("UPD");
-    }
+//    self.updTask = function(){
+//        console.log("UPD");
+//    }
 
     self.createOrUpdate = function(){
-        if( self.id == "" ) { self.createTask() } else { self.updTask() }
+        if( self.id == "" ) {
+            self.createTask()
+        }
+        else {
+            self.updTask()
+        }
     }
 
     self.delTask = function(task){

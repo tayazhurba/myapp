@@ -123,7 +123,26 @@ public class Application extends Controller {
     public static Result updTask2(){
         JsonNode request = request().body().asJson();
         System.out.println(request);
-        return TODO;
+////        Task task = Task.finder.byId(request.findPath("id").textValue());
+//        models.Task task = models.Task.finder.byId(request.findPath("id").textValue());
+//        System.out.println(models.Task.finder.byId(request.findPath("id").getStrValue()));
+//        task.setName(request.findPath("name").textValue());
+//        task.setBirthday(request.findPath("birthday").textValue());
+//        task.setGift(request.findPath("gift").textValue());
+//        task.setGiftStatus(request.findPath("giftStatus").textValue());
+
+
+        ObjectNode result = Json.newObject();
+
+//        try{
+//            task.update();
+//        } catch(Exception e) {
+//            result.put("status", "error");
+//            return badRequest(result);
+//        }
+
+        result.put("status","OK");
+        return ok(result);
     }
 
     @BodyParser.Of(BodyParser.Json.class)
@@ -136,6 +155,7 @@ public class Application extends Controller {
         Date date = new Date();
         try{
             date       = dateFormat.parse ( request.findPath("birthday").textValue() );
+            System.out.println("DDDDDDDDDDDDDDDD " + date);
         } catch (Exception e){
             System.out.println(e);
         }
@@ -160,8 +180,6 @@ public class Application extends Controller {
 
         System.out.println("QQQQQQQQQQQQQQQQQQQQQQQQQQ" + newTask);
 
-
-        System.out.println(newTask);
 
         ObjectNode result = Json.newObject();
 
